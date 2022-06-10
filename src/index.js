@@ -43,6 +43,12 @@ const changeSky = () => {
     skyBackground.style.backgroundImage = `url('../assets/bg_${selection}.png')`;
 };
 
+const changeCity = () => {
+    const city = document.getElementById('city');
+    const cityName = document.getElementById('cityName');
+    cityName.textContent = city.value;
+};
+
 const registerEventHandlers = () => {
     const up = document.getElementById('up');
     up.addEventListener('click', increaseTemp);
@@ -50,6 +56,8 @@ const registerEventHandlers = () => {
     down.addEventListener('click', decreaseTemp);
     const sky = document.getElementById('sky-select');
     sky.addEventListener('change', changeSky);
+    const city = document.getElementById('city');
+    city.addEventListener('change', changeCity);
 };
 
 document.addEventListener('DOMContentLoaded', registerEventHandlers);

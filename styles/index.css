@@ -108,14 +108,14 @@ select {
     border-radius: 10px;
     padding: 10px;
     font-family: 'Itim', sans-serif;
-    height: 200px;
+    height: 150px;
 }
 
 #temperatureArea {
     text-align: center;
     font-size: 3em;
     font-weight: bold;
-    line-height: 200px;
+    line-height: 150px;
 }
 
 #temperatureArea i {
@@ -123,6 +123,12 @@ select {
     font-size: 0.75em;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+#up,
+#down {
+    height: 40px;
+    width: 40px;
 }
 
 .grid {
