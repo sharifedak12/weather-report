@@ -1,12 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/index.css">
     <title>Weather Report</title>
 </head>
-<body>
-    
+
+<body class="content">
+    <header>
+        <h1>Weather Report</h1>
+        <h2>For the lovely city of <span id="cityName">Baltimore</span></h2>
+    </header>
+    <main>
+        <div class="grid">
+            <div id="citySelector">
+                <p class="selection">Enter a City:</p>
+                <form>
+                    <input type="text" id="fname" name="fname">
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div id="temperatureArea">
+                <i class="fa-solid fa-circle-chevron-up" id="up"></i>
+                <span id="temp">70&deg;F</span>
+                <i class="fa-solid fa-circle-chevron-down" id="down"></i>
+            </div>
+            <div id="skySelector">
+                <p class="selection">Select Sky:</p>
+                <div class="select">
+                    <select name="sky" id="sky-select">
+                    <option value="sunny">Sunny</option>
+                    <option value="cloudy">Cloudy</option>
+                    <option value="raining">Raining</option>
+                    <option value="snowing">Snowing</option>
+                </select>
+                </div>
+            </div>
+            <div class="sky-container" id="sky">
+                <img id="weatherGarden" src="assets/foreground_spring.png" alt="Weather garden reflecting current weather conditions">
+            </div>
+        </div>
+        <button>Get Current Temp</button>
+    </main>
 </body>
+<script src="src/index.js"></script>
+<script src="https://kit.fontawesome.com/b460b06237.js" crossorigin="anonymous"></script>
+
 </html>

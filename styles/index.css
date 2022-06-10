@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&family=Itim&display=swap');
+body {
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffcac8;
+}
+
+h1,
+h2 {
+    font-family: 'Itim', cursive;
+    text-align: center;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    margin: 10px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+h1 {
+    font-size: 5em;
+    line-height: 0.7em;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+h3 {
+    margin: 10px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;
+    font-family: 'Itim', sans-serif;
+    font-size: 1.5em;
+}
+
+button {
+    border-radius: 10px;
+    background-color: white;
+    color: #ffcac8;
+    font-family: 'Itim', sans-serif;
+    font-size: 20px;
+    border-width: 0px;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 30%;
+    margin-right: 30%;
+    padding: 16px 32px;
+    display: block;
+}
+
+input[type=text] {
+    width: 100%;
+    border: 1px solid #ffcac8;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    line-height: 1.1;
+    background-color: #fff;
+}
+
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: #ffcac8;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: 'Itim', sans-serif;
+    font-size: 20px;
+    width: 100%
+}
+
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 1em;
+    margin: 2px;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+
+.select {
+    width: 100%;
+    border: 1px solid #ffcac8;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    line-height: 1.1;
+    background-color: #fff;
+}
+
+.selection {
+    font-size: 1.5em;
+}
+
+#citySelector,
+#temperatureArea,
+#skySelector {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Itim', sans-serif;
+    height: 200px;
+}
+
+#temperatureArea {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    line-height: 200px;
+}
+
+#temperatureArea i {
+    color: #ffcac8;
+    font-size: 0.75em;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    max-width: 800px;
+}
+
+.sky-container {
+    grid-column: span 3 / auto;
+    border-radius: 10px;
+    height: 600px;
+    background-image: url('../assets/bg_sunny.png');
+}
