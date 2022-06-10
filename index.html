@@ -19,8 +19,7 @@
             <div id="citySelector">
                 <p class="selection">Enter a City:</p>
                 <form>
-                    <input type="text" id="city">
-                    <!-- <input type="submit" value="Submit"> -->
+                    <input type="text" id="city" value="Baltimore">
                 </form>
             </div>
             <div id="temperatureArea">
@@ -43,10 +42,13 @@
                 <img id="weatherGarden" src="assets/foreground_spring.png" alt="Weather garden reflecting current weather conditions">
             </div>
         </div>
-        <button>Get Current Temp</button>
+        <div class="button-container">
+            <button id="getWeatherButton">Get Current Temp</button>
+            <button id="resetButton">Reset Report</button>
+        </div>
     </main>
 </body>
 <script src="src/index.js"></script>
-<script src="https://kit.fontawesome.com/b460b06237.js" crossorigin="anonymous"></script>
+<script src="./node_modules/axios/dist/axios.min.js"></script>
 
 </html>
