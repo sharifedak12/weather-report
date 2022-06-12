@@ -23,7 +23,7 @@
                 </form>
             </section>
             <section id="temperatureArea">
-                <h4 class="hidden">Current temperature</h4>
+                <h3 class="hidden">Current temperature</h3>
                 <img src="/assets/up.png" id="up" alt="up arrow to increase temperature">
                 <span id="temp">70&deg;F</span>
                 <img src="/assets/down.png" id="down" alt="down arrow to decrease temperature">
@@ -31,7 +31,7 @@
             <section id="skySelector">
                 <h4 class="selection">Select Sky:</h4>
                 <div class="select">
-                    <select name="sky" id="sky-select">
+                    <select aria-label="Select sky" name="sky" id="sky-select">
                     <option value="sunny">Sunny</option>
                     <option value="cloudy">Cloudy</option>
                     <option value="raining">Raining</option>
@@ -40,8 +40,8 @@
                 </div>
             </section>
             <section class="sky-container" id="sky">
-                <h4 class="hidden" id="weatherGardenAccessibleSky">Current Sky is sunny</h4>
-                <h4 class="hidden" id="weatherGardenAccessibleForeground">There is a image in the forground showing many flowers, and a cat playing with a flower.</h4>
+                <h3 class="hidden" id="weatherGardenAccessibleSky">Current Sky is sunny</h3>
+                <h3 class="hidden" id="weatherGardenAccessibleForeground">There is a image in the forground showing many flowers, and a cat playing with a flower.</h3>
                 <img id="weatherGarden" src="assets/foreground_spring.png" alt="Weather garden reflecting current weather conditions">
             </section>
         </div>
