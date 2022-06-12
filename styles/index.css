@@ -31,6 +31,10 @@ h3 {
     font-size: 1.5em;
 }
 
+.hidden {
+    display: none;
+}
+
 button {
     border-radius: 10px;
     background-color: white;

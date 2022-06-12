@@ -3,6 +3,8 @@ const state = {
     temp: 70,
     tempColour: 'black',
     foreground: 'assets/foreground_spring.png',
+    foregroundAccessible: 'There is a image in the forground showing many flowers, and a cat playing with a flower.',
+    skyAccessible: 'Current sky is sunny',
 };
 
 const increaseTemp = () => {
@@ -18,29 +20,52 @@ const decreaseTemp = () => {
 const updateTemp = () => {
     const temp = document.getElementById('temp');
     const foreground = document.getElementById('weatherGarden');
+    const foregroundAccessible = document.getElementById(
+        'weatherGardenAccessibleForeground'
+    );
     temp.textContent = `${state.temp}°F`;
     if (state.temp > 80) {
         state.tempColour = '#FF9AA2';
         state.foreground = 'assets/foreground_hot.png';
+        state.foregroundAccessible =
+            'There is a image in the forground showing cacti, agave, a desert landscape, and two cats, one sleeping and one on its back.';
     } else if (state.temp > 60) {
         state.tempColour = '#FFDAC1';
         state.foreground = 'assets/foreground_spring.png';
+        state.foregroundAccessible =
+            'There is a image in the forground showing many flowers, and a cat playing with a flower.';
     } else if (state.temp > 50) {
         state.tempColour = '#E2F0CB';
         state.foreground = 'assets/foreground_fall.png';
+        state.foregroundAccessible =
+            'There is a image in the forground showing an autumn landscape, and two cats, one with a leaf on its head, and the other chasing a leaf.';
     } else if (state.temp > 40) {
         state.tempColour = '#C7CEEA';
         state.foreground = 'assets/foreground_winter.png';
+        state.foregroundAccessible =
+            'There is a image in the forground showing a snowy landscape, with pine trees covered in snow, and two cats, one in a hat and a scarf, and the other sitting peacefully.';
     }
     temp.style.color = state.tempColour;
     foreground.src = state.foreground;
+    foregroundAccessible.textContent = state.foregroundAccessible;
 };
 
 const changeSky = () => {
     const sky = document.getElementById('sky-select');
     const selection = sky.options[sky.selectedIndex].value;
     const skyBackground = document.getElementById('sky');
+    const skyAccessible = document.getElementById('weatherGardenAccessibleSky');
     skyBackground.style.backgroundImage = `url('../assets/bg_${selection}.png')`;
+    if (selection === 'sunny') {
+        state.skyAccessible = 'Current sky is sunny';
+    } else if (selection === 'cloudy') {
+        state.skyAccessible = 'Current sky is cloudy';
+    } else if (selection === 'raining') {
+        state.skyAccessible = 'Current sky is raining';
+    } else if (selection === 'snowing') {
+        state.skyAccessible = 'Current sky is snowing';
+    }
+    skyAccessible.textContent = state.skyAccessible;
 };
 
 const changeCity = () => {
@@ -56,8 +81,18 @@ const reset = () => {
     cityName.textContent = 'Baltimore';
     state.temp = 70;
     state.tempColour = 'black';
+    const temp = document.getElementById('temp');
     temp.textContent = `${state.temp}°F`;
     temp.style.color = state.tempColour;
+    state.foregroundAccessible =
+        'There is a image in the forground showing many flowers, and a cat playing with a flower.';
+    const foregroundAccessible = document.getElementById(
+        'weatherGardenAccessibleForeground'
+    );
+    foregroundAccessible.textContent = state.foregroundAccessible;
+    state.skyAccessible = 'Current sky is sunny';
+    const skyAccessible = document.getElementById('weatherGardenAccessibleSky');
+    skyAccessible.textContent = state.skyAccessible;
     const skyBackground = document.getElementById('sky');
     skyBackground.style.backgroundImage = `url('../assets/bg_sunny.png')`;
     const foreground = document.getElementById('weatherGarden');
