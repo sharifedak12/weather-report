@@ -1,7 +1,16 @@
 'use strict';
 import 'regenerator-runtime/runtime';
 import axios from 'axios';
-
+const dict = {
+    spring: require('../assets/foreground_spring.png'),
+    summer: require('../assets/foreground_hot.png'),
+    fall: require('../assets/foreground_fall.png'),
+    winter: require('../assets/foreground_winter.png'),
+    sunny: require('../assets/bg_sunny.png'),
+    cloudy: require('../assets/bg_cloudy.png'),
+    raining: require('../assets/bg_raining.png'),
+    snowing: require('../assets/bg_snowing.png'),
+};
 const state = {
     temp: 70,
     tempColour: 'black',
