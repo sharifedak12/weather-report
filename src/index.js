@@ -12,14 +12,24 @@ const images = {
     backgroundSnowing: require('../assets/bg_snowing.png'),
 };
 
+const accessibleText = {
+    foregroundHot: 'There is a image in the forground showing cacti, agave, a desert landscape, and two cats, one sleeping and one on its back.',
+    foregroundSpring: 'There is a image in the forground showing many flowers, and a cat playing with a flower.',
+    foregroundFall: 'There is a image in the forground showing an autumn landscape, and two cats, one with a leaf on its head, and the other chasing a leaf.',
+    foregroundWinter: 'There is a image in the forground showing a snowy landscape, with pine trees covered in snow, and two cats, one in a hat and a scarf, and the other sitting peacefully.',
+    backgroundSunny: 'Current sky is sunny',
+    backgroundCloudy: 'Current sky is cloudy',
+    backgroundRaining: 'Current sky is raining',
+    backgroundSnowing: 'Current sky is snowing',
+};
 const state = {
     city: 'Baltimore',
     temp: 70,
     tempColour: 'black',
     foreground: images.foregroundSpring,
     backgroundImage: images.backgroundSunny,
-    foregroundAccessible: 'There is a image in the forground showing many flowers, and a cat playing with a flower.',
-    skyAccessible: 'Current sky is sunny',
+    foregroundAccessible: accessibleText.foregroundSpring,
+    skyAccessible: accessibleText.backgroundSunny,
 };
 
 const increaseTemp = () => {
@@ -42,23 +52,19 @@ const updateTemp = () => {
     if (state.temp > 80) {
         state.tempColour = '#FF9AA2';
         state.foreground = images.foregroundHot;
-        state.foregroundAccessible =
-            'There is a image in the forground showing cacti, agave, a desert landscape, and two cats, one sleeping and one on its back.';
+        state.foregroundAccessible = accessibleText.foregroundHot;
     } else if (state.temp > 60) {
         state.tempColour = '#FFDAC1';
         state.foreground = images.foregroundSpring;
-        state.foregroundAccessible =
-            'There is a image in the forground showing many flowers, and a cat playing with a flower.';
+        state.foregroundAccessible = accessibleText.foregroundSpring;
     } else if (state.temp > 50) {
         state.tempColour = '#E2F0CB';
         state.foreground = images.foregroundFall;
-        state.foregroundAccessible =
-            'There is a image in the forground showing an autumn landscape, and two cats, one with a leaf on its head, and the other chasing a leaf.';
+        state.foregroundAccessible = accessibleText.foregroundFall;
     } else if (state.temp > 40) {
         state.tempColour = '#C7CEEA';
         state.foreground = images.foregroundWinter;
-        state.foregroundAccessible =
-            'There is a image in the forground showing a snowy landscape, with pine trees covered in snow, and two cats, one in a hat and a scarf, and the other sitting peacefully.';
+        state.foregroundAccessible = accessibleText.foregroundWinter;
     }
     temp.style.color = state.tempColour;
     foreground.src = state.foreground;
@@ -71,16 +77,16 @@ const changeSky = () => {
     const skyBackground = document.getElementById('sky');
     const skyAccessible = document.getElementById('weatherGardenAccessibleSky');
     if (selection === 'sunny') {
-        state.skyAccessible = 'Current sky is sunny';
+        state.skyAccessible = accessibleText.backgroundSunny;
         state.backgroundImage = images.backgroundSunny;
     } else if (selection === 'cloudy') {
-        state.skyAccessible = 'Current sky is cloudy';
+        state.skyAccessible = accessibleText.backgroundCloudy;
         state.backgroundImage = images.backgroundCloudy;
     } else if (selection === 'raining') {
-        state.skyAccessible = 'Current sky is raining';
+        state.skyAccessible = accessibleText.backgroundRaining;
         state.backgroundImage = images.backgroundRaining;
     } else if (selection === 'snowing') {
-        state.skyAccessible = 'Current sky is snowing';
+        state.skyAccessible = accessibleText.backgroundSnowing;
         state.backgroundImage = images.backgroundSnowing;
     }
     skyAccessible.textContent = state.skyAccessible;
@@ -106,9 +112,8 @@ const reset = () => {
     state.city = 'Baltimore';
     state.temp = 70;
     state.tempColour = 'black';
-    state.foregroundAccessible =
-        'There is a image in the forground showing many flowers, and a cat playing with a flower.';
-    state.skyAccessible = 'Current sky is sunny';
+    state.foregroundAccessible = accessibleText.foregroundSpring;
+    state.skyAccessible = accessibleText.backgroundSunny;
     state.backgroundImage = images.backgroundSunny;
     state.foreground = images.foregroundSpring;
     city.value = state.city;
@@ -173,16 +178,24 @@ const getWeather = (latitude, longitude) => {
             state.temp = convertKelvinToFahrenheit(weather.current.temp);
             updateTemp();
             const skyBackground = document.getElementById('sky');
+            const skyAccessible = document.getElementById(
+                'weatherGardenAccessibleSky'
+            );
             if (weather.current.weather[0].main === 'Clouds') {
                 state.backgroundImage = images.backgroundCloudy;
+                state.skyAccessible = accessibleText.backgroundCloudy;
             } else if (weather.current.weather[0].main === 'Clear') {
                 state.backgroundImage = images.backgroundSunny;
+                state.backgroundImage = accessibleText.backgroundSunny;
             } else if (weather.current.weather[0].main === 'Rain') {
                 state.backgroundImage = images.backgroundRaining;
+                state.backgroundImage = accessibleText.backgroundRaining;
             } else if (weather.current.weather[0].main === 'Snow') {
                 state.backgroundImage = images.backgroundSnowing;
+                state.backgroundImage = accessibleText.backgroundSnowing;
             }
             skyBackground.style.backgroundImage = `url('${state.backgroundImage}')`;
+            skyAccessible.textContent = state.skyAccessible;
         })
         .catch((error) => {
             console.log(error);
